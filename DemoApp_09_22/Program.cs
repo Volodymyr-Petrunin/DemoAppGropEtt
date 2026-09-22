@@ -1,50 +1,57 @@
-﻿namespace DemoApp_09_22
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            //Skapar objekten
-           AgeChecker ageChecker = new AgeChecker();
-            Calculator calculator = new Calculator();
+﻿using System.Text;
 
-            bool running = true;
+namespace DemoApp_09_22;
 
-            while (running)
-            {
-                Console.Clear();
-                Console.WriteLine("---Klassens verktygsläda---");
-                Console.WriteLine();
-                Console.WriteLine("1. Kolla åldern");
-                Console.WriteLine("2. Räkna med siffror");
-                Console.WriteLine();
+internal class Program {
 
-                Console.Write("Välj, använd 0 för att avsluta: ");
-                string choice = Console.ReadLine();
+    private static readonly AgeChecker AgeChecker = new AgeChecker();
 
-                switch (choice)
-                {
-                    case "1":
-                        ageChecker.Run();
-                        break;
+    private static readonly Calculator Calculator = new Calculator();
 
-                    case "2":
-                        calculator.Run();
-                        break;
+    static void Main(string[] args) {
+        bool running = true;
 
-                    case "0":
-                        running = false;
-                        break;
+        while (running) {
+            Console.Clear();
+            PrintMenu();
 
-                    default:
-                        Console.WriteLine("Felaktig inmatning");
-                        break;
+            Console.Write("Välj, använd 0 för att avsluta: ");
+            string choice = Console.ReadLine();
 
-                }
-                Console.WriteLine();
-                Console.WriteLine("Välj en funktion från verktygslådan");
-                Console.ReadKey();
+            switch (choice) {
+                case "1":
+                    AgeChecker.Run();
+                    break;
+                case "2":
+                    Calculator.Run();
+                    break;
+                case "3":
+                    // Not implemented
+                    Console.WriteLine("Not implemented");
+                    break;
+                case "0":
+                    running = false;
+                    continue;
+                default:
+                    Console.WriteLine("Felaktig inmatning");
+                    break;
             }
+
+            Console.WriteLine("Click on any key to continue");
+            Console.ReadKey();
         }
+    }
+
+    private static void PrintMenu() {
+        string menu = new StringBuilder()
+            .AppendLine("---Klassens verktygsläda---")
+            .AppendLine("1. Kolla åldern")
+            .AppendLine("2. Räkna med siffror")
+            .AppendLine("3. Skapa en bil")
+            .AppendLine("0. Avsluta")
+            .AppendLine(new string('-', 40))
+            .ToString();
+
+        Console.WriteLine(menu);
     }
 }
