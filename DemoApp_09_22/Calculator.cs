@@ -10,14 +10,14 @@ namespace DemoApp_09_22
         {
             // Info message
             Console.WriteLine("----------------------------" +
-                "\nCalculator 2.1" +
+                "\n       Calculator 2.1" +
                 "\n----------------------------" +
                 "\n" +
                 "\nVälkommen till miniräknaren!" +
-                "\nAnge 2 hel- eller decimal tal, + ett räknesätt" +
-                "\nSå kommer miniräknaren att räkna ut det åt dig.");
+                "\nAnge 2 hel- eller decimal tal, + ett räknesätt," +
+                "\noch låt miniräknaren räkna ut det åt dig.");
 
-            // Variables for the method
+            // Variables for the calculator
             double num1 = 0.0;
             double num2 = 0.0;
             string math = "";
@@ -29,7 +29,7 @@ namespace DemoApp_09_22
                 try
                 {
                     // Try to double.Parse the user input
-                    Console.Write("Ange första talet");
+                    Console.Write("Ange första talet: ");
                     num1 = double.Parse(Console.ReadLine());
                     break;
                 }
@@ -44,7 +44,7 @@ namespace DemoApp_09_22
             // Loop for the operator, math
             while (true)
             {
-                Console.Write("Ange räknesätt (+,-,*,/):");
+                Console.Write("Ange räknesätt (+,-,*,/): ");
                 math = Console.ReadLine();
 
                 // Check the input for the operator
@@ -56,7 +56,7 @@ namespace DemoApp_09_22
                 else
                 {
                     // If it is anything other than +,-,*,/ we give an error messages and run the input again
-                    Console.WriteLine("Endast +, -, *, / är gilltliga räknesätt" +
+                    Console.WriteLine("Endast +, -, *, / är gilltliga räknesätt..." +
                         "\nFörsök igen!");
                 }
             }
