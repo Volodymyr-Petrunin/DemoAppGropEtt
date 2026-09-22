@@ -31,14 +31,10 @@ internal class Program {
                     break;
                 case "0":
                     running = false;
-                    break;
+                    continue;
                 default:
                     Console.WriteLine("Felaktig inmatning");
                     break;
-            }
-
-            if (choice is "0") {
-                continue;
             }
 
             Console.WriteLine("Click on any key to continue");
